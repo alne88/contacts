@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+</head>
+<body>
+<h2>Contact view page</h2>
+    <div>
+        <p>Name: <span th:text="${contact.name}"/></p>
+        <p>Surname: <span th:text="${contact.lastname}"/></p>
+        <p>Creation time: <span th:text="${contact.creationtime}"/></p>
+        <p>Status: <span th:text="${contact.status}"/></p>
+        <p>Description: <span th:text="${contact.description}"/></p>
+    </div>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Country code</td>
+            <td>Phone number</td>
+            <td>Description</td>
+            <td>Type</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="phone:${phones}">
+            <td th:text="${phone.countrycode and phone.phonenumber}"/>
+            <td th:text="${phone.description}"/>
+            <td th:text="${phone.type}"/>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
