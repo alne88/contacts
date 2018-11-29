@@ -16,17 +16,20 @@
 <table border="1">
     <thead>
         <tr>
-            <td>Country code</td>
+            <td>Type</td>
             <td>Phone number</td>
             <td>Description</td>
-            <td>Type</td>
         </tr>
     </thead>
     <tbody>
         <tr th:each="phone:${phones}">
-            <td th:text="${phone.countrycode and phone.phonenumber}"/>
-            <td th:text="${phone.description}"/>
             <td th:text="${phone.type}"/>
+            <td>
+                <span th:text="${phone.countrycode}"/>
+                -
+                <span th:text="${phone.phonenumber}"/>
+            </td>
+            <td th:text="${phone.description}"/>
         </tr>
     </tbody>
 </table>

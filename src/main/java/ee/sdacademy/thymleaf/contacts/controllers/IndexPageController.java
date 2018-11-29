@@ -1,5 +1,6 @@
 package ee.sdacademy.thymleaf.contacts.controllers;
 
+import ee.sdacademy.thymleaf.contacts.domain.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,5 +28,12 @@ public class IndexPageController {
         model.addAttribute("contact", contactService.get(id));
         model.addAttribute("phones", contactService.findPhonesById(id));
         return "view";
+    }
+
+    @GetMapping("/addContact")
+    public String createContact(Model model){
+        model.addAttribute("newContact",true);
+        model.addAttribute("contact",new Contact());
+        return "addContact";
     }
 }
